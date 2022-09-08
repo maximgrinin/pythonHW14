@@ -16,9 +16,9 @@ def page_movie_by_title(title):
 
 
 # Вьюшка для фильмов по интервалу лет
-@app.route("/movie/year/to/year/")
-def page_year_to_year():
-    movies_list = get_by_period(2000, 2005)
+@app.route("/movie/<int:year_start>/to/<int:year_end>")
+def page_year_to_year(year_start, year_end):
+    movies_list = get_by_period(year_start, year_end)
 
     return jsonify(movies_list)
 
